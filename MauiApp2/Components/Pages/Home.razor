@@ -1,0 +1,18 @@
+﻿@page "/"
+@using Services
+@inject ILocalNotification LocalNotification
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@code{
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            LocalNotification.ScheduleNotification("888", "Test", "Das ist nur ein Test", DateTime.Now.AddSeconds(15));
+        }
+    }
+}
